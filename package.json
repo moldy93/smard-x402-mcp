@@ -1,6 +1,7 @@
 {
-  "name": "smard-x402-mcp",
+  "name": "@moldy93/smard-x402-mcp",
   "version": "0.0.1",
+  "mcpName": "io.github.moldy93/smard-x402",
   "description": "Hosted MCP/HTTP server for SMARD day-ahead electricity prices (x402 paywall)",
   "repository": {
     "type": "git",
