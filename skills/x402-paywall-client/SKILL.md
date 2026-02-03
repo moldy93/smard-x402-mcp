@@ -13,7 +13,7 @@ Generate x402 payment headers and call paywalled endpoints (HTTP or MCP streamab
 2) Create `X-PAYMENT` header
 3) Call the endpoint again with payment
 
-Use the script below (`scripts/x402_pay.ts`).
+Use the script below (or `scripts/x402_pay.mjs`).
 
 ## MCP (streamable‑http)
 For MCP endpoints, you still pay via x402 for the HTTP call, but you must send:
@@ -21,10 +21,10 @@ For MCP endpoints, you still pay via x402 for the HTTP call, but you must send:
 Accept: application/json, text/event-stream
 ```
 
-## Script: `scripts/x402_pay.ts`
+## Script: `scripts/x402_pay.mjs`
 Run:
 ```bash
-ts-node scripts/x402_pay.ts --url https://example.com/prices \
+node scripts/x402_pay.mjs --url https://example.com/prices \
   --rpc https://mainnet.base.org \
   --key $PRIVATE_KEY
 ```

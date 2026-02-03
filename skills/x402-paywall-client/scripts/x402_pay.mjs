@@ -1,10 +1,10 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env node
 import { createWalletClient, http } from "viem";
 import { base } from "viem/chains";
 import { privateKeyToAccount } from "viem/accounts";
 import { createPaymentHeader, selectPaymentRequirements } from "x402/client";
 
-function getArg(name: string): string | undefined {
+function getArg(name) {
   const idx = process.argv.indexOf(`--${name}`);
   return idx >= 0 ? process.argv[idx + 1] : undefined;
 }
@@ -15,13 +15,11 @@ const key = getArg("key") || process.env.PRIVATE_KEY;
 const accept = getArg("accept");
 
 if (!url || !key) {
-  console.error(
-    "Usage: ts-node scripts/x402_pay.ts --url <URL> --key <PRIVATE_KEY> [--rpc <RPC>] [--accept <acceptHeader>]"
-  );
+  console.error("Usage: node scripts/x402_pay.mjs --url <URL> --key <PRIVATE_KEY> [--rpc <RPC>] [--accept <acceptHeader>]");
   process.exit(1);
 }
 
-const account = privateKeyToAccount(key as `0x${string}`);
+const account = privateKeyToAccount(key);
 const client = createWalletClient({ account, chain: base, transport: http(rpc) });
 
 // 1) Get payment requirements (expect 402)
